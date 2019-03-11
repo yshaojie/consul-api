@@ -11,11 +11,11 @@ repositories {
 
 dependencies {
 	implementation "com.google.code.gson:gson:2.8.2"
-	implementation "org.apache.httpcomponents:httpcore:4.4.9"
-	implementation "org.apache.httpcomponents:httpclient:4.5.5"
 
 	testImplementation 'org.junit.jupiter:junit-jupiter-api:5.1.0'
 	testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.1.0'
+	testImplementation "org.apache.httpcomponents:httpcore:4.4.9"
+	testImplementation "org.apache.httpcomponents:httpclient:4.5.5"
 
 	testImplementation "org.mockito:mockito-core:2.15.0"
 	testImplementation "org.hamcrest:hamcrest-library:1.3"

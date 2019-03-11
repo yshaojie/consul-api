@@ -3,7 +3,6 @@ package com.ecwid.consul.v1;
 import com.ecwid.consul.UrlParameters;
 import com.ecwid.consul.Utils;
 import com.ecwid.consul.transport.*;
-import org.apache.http.client.HttpClient;
 
 import java.util.Arrays;
 import java.util.List;
@@ -61,7 +60,7 @@ public class ConsulRawClient {
 		}
 
 		public Builder setHttpClient(HttpClient httpClient) {
-			this.httpTransport = new DefaultHttpTransport(httpClient);
+			this.httpTransport = new DefaultHttpTransport();
 			return this;
 		}
 
@@ -95,11 +94,11 @@ public class ConsulRawClient {
 	}
 
 	public ConsulRawClient(String agentHost, HttpClient httpClient) {
-		this(new DefaultHttpTransport(httpClient), agentHost, DEFAULT_PORT, DEFAULT_PATH);
+		this(new DefaultHttpTransport(), agentHost, DEFAULT_PORT, DEFAULT_PATH);
 	}
 
 	public ConsulRawClient(String agentHost, int agentPort, HttpClient httpClient) {
-		this(new DefaultHttpTransport(httpClient), agentHost, agentPort, DEFAULT_PATH);
+		this(new DefaultHttpTransport(), agentHost, agentPort, DEFAULT_PATH);
 	}
 
 	public ConsulRawClient(String agentHost, int agentPort, TLSConfig tlsConfig) {
@@ -107,7 +106,7 @@ public class ConsulRawClient {
 	}
 
 	public ConsulRawClient(HttpClient httpClient, String host, int port, String path) {
-		this(new DefaultHttpTransport(httpClient), host, port, path);
+		this(new DefaultHttpTransport(), host, port, path);
 	}
 
 	// hidden constructor, for tests
