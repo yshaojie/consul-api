@@ -52,6 +52,12 @@ public class NewService {
 		@SerializedName("Status")
 		private String status;
 
+		@SerializedName("GRPC")
+		private String grpc;
+
+		@SerializedName("GRPCUseTLS")
+		private Boolean grpcUseTLS;
+
 		public String getScript() {
 			return script;
 		}
@@ -156,23 +162,43 @@ public class NewService {
 			this.status = status;
 		}
 
+		public String getGrpc() {
+			return grpc;
+		}
+
+		public void setGrpc(String grpc) {
+			this.grpc = grpc;
+		}
+
+		public Boolean getGrpcUseTLS() {
+			return grpcUseTLS;
+		}
+
+		public void setGrpcUseTLS(Boolean grpcUseTLS) {
+			this.grpcUseTLS = grpcUseTLS;
+		}
+
+
 		@Override
 		public String toString() {
-			return "Check{" +
-					"script='" + script + '\'' +
-					", interval='" + interval + '\'' +
-					", ttl='" + ttl + '\'' +
-					", http='" + http + '\'' +
-					", method='" + method + '\'' +
-					", header=" + header +
-					", tcp='" + tcp + '\'' +
-					", timeout='" + timeout + '\'' +
-					", dockerContainerID='" + dockerContainerID + '\'' +
-                    			", shell='" + shell + '\'' +
-					", deregisterCriticalServiceAfter='" + deregisterCriticalServiceAfter + '\'' +
-					", tlsSkipVerify=" + tlsSkipVerify +
-					", status='" + status + '\'' +
-					'}';
+			final StringBuilder sb = new StringBuilder("Check{");
+			sb.append("script='").append(script).append('\'');
+			sb.append(", dockerContainerID='").append(dockerContainerID).append('\'');
+			sb.append(", shell='").append(shell).append('\'');
+			sb.append(", interval='").append(interval).append('\'');
+			sb.append(", ttl='").append(ttl).append('\'');
+			sb.append(", http='").append(http).append('\'');
+			sb.append(", method='").append(method).append('\'');
+			sb.append(", header=").append(header);
+			sb.append(", tcp='").append(tcp).append('\'');
+			sb.append(", timeout='").append(timeout).append('\'');
+			sb.append(", deregisterCriticalServiceAfter='").append(deregisterCriticalServiceAfter).append('\'');
+			sb.append(", tlsSkipVerify=").append(tlsSkipVerify);
+			sb.append(", status='").append(status).append('\'');
+			sb.append(", grpc='").append(grpc).append('\'');
+			sb.append(", grpcUseTLS=").append(grpcUseTLS);
+			sb.append('}');
+			return sb.toString();
 		}
 	}
 
